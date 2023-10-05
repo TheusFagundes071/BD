@@ -9,19 +9,19 @@ use Mariadb;
 
 CREATE TABLE Mariadb.Produtos(
 ID Int auto_increment primary key,
-NomeProduto VARCHAR(255),
+NomeProduto VARCHAR(255) not null,
 Descricao Text,
-PrecoUnitario float,
-EstoqueMinimo int
+PrecoUnitario float not null,
+EstoqueMinimo int not null
 );
 
 
 CREATE TABLE Mariadb.Fornecedores(
 ID int auto_increment primary key,
-NomeFornecedor varchar(255),
-Endereco varchar(255) unique,
-Telefone varchar(22) unique,
-Email varchar(255) unique,
+NomeFornecedor varchar(255) not null,
+Endereco varchar(255) unique not null,
+Telefone varchar(22) unique not null,
+Email varchar(255) unique not null,
 ProdutoID int,
 foreign key (ProdutoID) references Produtos(ID)
 );
